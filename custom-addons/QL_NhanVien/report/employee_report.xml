@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Khai báo báo cáo -->
+    <record id="employee_card_report" model="ir.actions.report">
+        <field name="name">Print PIN</field>
+        <field name="model">ql_nhanvien.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">QL_NhanVien.employee_card_template</field>
+        <field name="report_file">QL_NhanVien.employee_card_template</field>
+        <field name="print_report_name">'Thẻ nhân viên - %s' % (object.name).replace('/', '')</field>
+    </record>
+
+    <!-- Định nghĩa template báo cáo -->
+    <template id="employee_card_template">
+        <t t-call="web.basic_layout">
+            <div class="page" style="border: 1px solid #000; border-radius: 8px; padding: 15px; width: 300px; height: 400px; text-align: center;">
+
+                <!-- Lặp qua danh sách nhân viên -->
+                <t t-foreach="docs" t-as="employee">
+                    <!-- logo công ty-->
+                                       <!-- Tên Nhân Viên -->
+                    <h1 style="font-size: 20px; margin-bottom: 10px;">
+                        <t t-esc="employee.name"/>
+                    </h1>
+
+                    <!-- Vị trí nhân viên -->
+                    <h2 style="font-size: 16px; color: #666; margin-bottom: 15px;">
+                        Vị trí: <t t-esc="employee.role_ids.name"/>
+                    </h2>
+
+                    <!-- Mã vạch nhân viên -->
+<!-- Mã vạch nhân viên -->
+                    <div style="font-size: 8px; margin-bottom:10px">
+                        <img t-att-src="image_data_uri(employee.barcode_image)" alt="Barcode" style="width: 90%; height: auto; max-height: 70px;"/>
+                    </div>
+
+
+                    <!-- Ảnh nhân viên -->
+                    <div style="margin-top: 10px;">
+                        <img t-att-src="image_data_uri(employee.image)" style="max-height: 85pt; max-width: 90%; border-radius: 8px;" alt="Employee Image"/>
+                    </div>
+
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

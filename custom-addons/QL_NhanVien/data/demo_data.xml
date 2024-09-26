@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Department Definitions -->
+        <record id="department_it" model="ql_nhanvien.department">
+            <field name="name">IT</field>
+            <field name="description">Information Technology Department</field>
+        </record>
+        
+
+        <!-- Role Definitions -->
+        <record id="role_developer" model="ql_nhanvien.role">
+            <field name="name">Developer</field>
+            <field name="description">Develops and maintains software applications.</field>
+        </record>
+
+        <record id="role_designer" model="ql_nhanvien.role">
+            <field name="name">Designer</field>
+            <field name="description">Designs graphics and user interfaces.</field>
+        </record>
+
+        <!-- Employee Definitions -->
+        <record id="employee_1" model="ql_nhanvien.employee">
+            <field name="name">Nguyễn Thị Ngọc Ngân</field>
+            <field name="employee_id">IT02</field>
+            <field name="department_id" ref="department_it"/>
+            <field name="role_ids" eval="[(6, 0, [ref('role_developer')])]"/>
+            <field name="work_email">ntngan@company.com</field>
+            <field name="work_mobile">+84901234567</field>
+            <field name="gender">female</field>
+            <field name="country">Vietnam</field>
+            <field name="day_of_birth">2002-11-04</field>
+        </record>
+    </data>
+</odoo>
+

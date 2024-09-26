@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_contracts_tree" model="ir.ui.view">
+        <field name="name">ql_nhanvien.contracts.tree</field>
+        <field name="model">ql_nhanvien.contracts</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="contract_type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="salary"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_contracts_form" model="ir.ui.view">
+        <field name="name">ql_nhanvien.contracts.form</field>
+        <field name="model">ql_nhanvien.contracts</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm_contract" string="Xác nhận" type="object" invisible="state != 'draft'" class="oe_highlight"/>
+                  <button name="action_terminate_contract" string="Kết thúc" type="object" invisible="state != 'active'" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="employee_id"/>
+                            <field name="contract_type"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="salary"/>
+                            <field name="position"/>
+                            <field name="department_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Ghi chú">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_contracts_search" model="ir.ui.view">
+        <field name="name">ql_nhanvien.contracts.search</field>
+        <field name="model">ql_nhanvien.contracts</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="contract_type"/>
+                <field name="state"/>
+                <filter string="Hợp đồng đang hoạt động" name="active_contracts" domain="[('state', '=', 'active')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Nhân viên" name="employee" context="{'group_by':'employee_id'}"/>
+                    <filter string="Loại hợp đồng" name="contract_type" context="{'group_by':'contract_type'}"/>
+                    <filter string="Trạng thái" name="state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_contracts" model="ir.actions.act_window">
+        <field name="name">Hợp đồng</field>
+        <field name="res_model">ql_nhanvien.contracts</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_contracts_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo hợp đồng mới
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

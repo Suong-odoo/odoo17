@@ -1,0 +1,3 @@
+[console_scripts]
+writer=writer.command_line:main
+

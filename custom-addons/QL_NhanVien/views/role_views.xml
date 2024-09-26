@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Role Form View -->
+        <record id="role_view_form" model="ir.ui.view">
+            <field name="name">role.form</field>
+            <field name="model">ql_nhanvien.role</field>
+            <field name="arch" type="xml">
+                <form string="Chi Tiết Vị trí">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Tên Vị trí"/>
+                            <field name="description" string="Mô Tả Vị trí công việc"/>
+                        </group>
+                        <notebook>
+                            <page string="Nhân Viên Đảm Nhiệm">
+                                <field name="employee_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="employee_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Role Tree View -->
+        <record id="role_view_tree" model="ir.ui.view">
+            <field name="name">role.tree</field>
+            <field name="model">ql_nhanvien.role</field>
+            <field name="arch" type="xml">
+                <tree string="Danh Sách Vị trí công việc">
+                    <field name="name" string="Tên Vị trí"/>
+                    <field name="description" string="Mô Tả Vị trí công vệc"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Role Action -->
+        <record id="action_role" model="ir.actions.act_window">
+            <field name="name">Vị trí công việc</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ql_nhanvien.role</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Role Menu Item -->
+        <menuitem id="menu_role" name="Vị trí" action="action_role" parent="main_hr_menu"/>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_employee" model="ir.actions.act_window">
+            <field name="name">Nhân viên</field>
+            <field name="res_model">ql_nhanvien.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_contracts" model="ir.actions.act_window">
+            <field name="name">Hợp đồng</field>
+            <field name="res_model">ql_nhanvien.contracts</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_department" model="ir.actions.act_window">
+            <field name="name">Phòng ban</field>
+            <field name="res_model">ql_nhanvien.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu chính -->
+        <menuitem id="main_hr_menu" name="Quản lý nhân viên công ty"/>
+
+        <!-- Menu con Nhân viên -->
+        <menuitem id="menu_employee_parent" name="Nhân Viên" parent="main_hr_menu" sequence="0" action="action_employee"/>
+        <menuitem id="menu_employee" name="Nhân viên" parent="menu_employee_parent" sequence="1" action="action_employee"/>
+
+        <!-- Menu Hợp đồng, hiển thị sau Nhân viên -->
+        <menuitem id="menu_contracts"
+                  name="Hợp đồng"
+                  parent="menu_employee_parent"
+                  action="action_contracts"
+                  sequence="2"/>
+
+        <!-- Menu con Phòng Ban -->
+        <menuitem id="menu_department" name="Phòng Ban" parent="main_hr_menu" action="action_department" sequence="3"/>
+    </data>
+</odoo>

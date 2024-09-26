@@ -1,0 +1,142 @@
+<odoo>
+    <data>
+        <!-- Employee Form View -->
+        <record id="employee_view_form" model="ir.ui.view">
+            <field name="name">employee.form</field>
+            <field name="model">ql_nhanvien.employee</field>
+            <field name="arch" type="xml">
+                <form string="Thông Tin Nhân Viên">
+                    <header>
+                        <!-- Nút Tạo -->
+                        <button name="action_create_employee" string="Tạo" type="object" class="oe_highlight" groups="QL_NhanVien.group_ql_nhanvien_manager"/>
+                        <!-- Nút In sẽ chỉ hiện sau khi tạo nhân viên -->
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Họ Và Tên" class="oe_edit_only"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group col="2">
+                                <!-- Các trường ở cột thứ nhất -->
+                                <field name="country" string="Quốc gia"/>
+                                <field name="gender" widget="selection">
+                                    <selection>
+                                        <item value="male">Nam</item>
+                                        <item value="female">Nữ</item>
+                                    </selection>
+                                </field>
+
+                                <field name="day_of_birth" string="Ngày sinh"/>
+                                <field name="employee_id" string="Mã nhân viên"/>
+                                <field name="user_id" string="User_id"/>
+                                <div style="white-space: nowrap;">
+                                    <h5>
+                                        <span class="oe_form_field_label" style="vertical-align: top;">Hình ảnh nhân viên:</span>
+                                    </h5>
+                                </div>
+                                <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                            </group>
+                            <group col="2">
+                                <!-- Các trường ở cột thứ hai -->
+                                <field name="work_mobile" string="Số di động công việc"/>
+                                <field name="work_email" string="Email công việc"/>
+                                <field name="department_id" string="Phòng/Ban"/>
+                                <field name="role_ids" string="Vị trí"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <!-- Tab Thông tin Công việc -->
+                          <page string="Thông tin Công việc">
+                        <group>
+
+                            <field name="work_location" widget="selection" string='Địa điểm làm việc'/>
+                            <field name="work_schedule" widget="selection" string="Lịch làm việc"/>
+                        </group>
+                    </page>
+
+
+                            <!-- Tab Thông tin Cá nhân -->
+                            <page string="Thông tin Cá nhân">
+                                <group>
+                                    <group col="2">
+                                        <separator string="LIÊN HỆ CÁ NHÂN" colspan="2"/>
+                                        <field name="home_address" string="Địa chỉ nhà"/>
+                                        <field name="domicile" string="Quê quán"/>
+                                        <field name="personal_email" string="Địa chỉ email riêng"/>
+                                        <field name="bank_account_number" string="Số TK ngân hàng"/>
+                                    </group>
+                                    <group col="2">
+                                        <separator string="HỌC VẤN" colspan="2"/>
+                                        <field name="education_level" widget="selection" string="Cấp độ chứng nhận"/>
+                                        <field name="degree" string="Hình ảnh bằng cấp" widget="image"/>
+                                        <field name="certificate" string="Hình ảnh chứng chỉ" widget="image"/>
+                                        <field name="study_field" string="Lĩnh vực nghiên cứu"/>
+                                        <field name="school" string="Trường học"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group col="2">
+                                        <separator string="GIẤY PHÉP LĐ" colspan="2"/>
+                                        <field name="visa_number" string="Số Visa"/>
+                                        <field name="work_permit_number" string="Số Giấy phép LĐ"/>
+                                        <field name="visa_expire_date" string="Ngày hết hạn Visa"/>
+                                        <field name="work_permit_expire_date" string="Ngày hết hạn giấy phép LĐ"/>
+                                        <field name="work_permit_attachment" string="Tải lên tập tin của bạn" widget="binary"/>
+                                    </group>
+                                    <group col="2">
+                                        <separator string="MỨC LƯƠNG" colspan="2"/>
+                                        <field name="wage"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <!-- Tab Thiết lập Nhân lực -->
+                            <page string="Thiết lập Nhân lực">
+                                <group>
+                                    <group col="2">
+                                        <separator string="TÌNH TRẠNG" colspan="2"/>
+                                        <field name="employee_type" string="Kiểu Nhân viên"/>
+                                    </group>
+                                    <group col="2">
+                                        <separator string="CHẤM CÔNG" colspan="2"/>
+                                        <field name="ma_pin" string="Mã Pin"/>
+                                        <field name="card_number" string="Mã Số Thẻ"/>
+                                        <field name="barcode_image" widget="image" string="Mã Vạch" class="oe_avatar" options="{'size': [300, 150]}"/>
+                                        <button name="action_print_employee_card" string="In thẻ" class="btn btn-link" type="object"/>
+
+                                    </group>
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Employee Tree View -->
+        <record id="employee_view_tree" model="ir.ui.view">
+            <field name="name">employee.tree</field>
+            <field name="model">ql_nhanvien.employee</field>
+            <field name="arch" type="xml">
+                <tree string="Danh Sách Nhân Viên">
+                    <field name="image" string="Ảnh đại diện" widget="image" options='{"size": [40, 30]}'/>
+                    <field name="name" string="Họ và Tên"/>
+                    <field name="work_email" string="Email công việc"/>
+                    <field name="work_mobile" string="Số di động công việc"/>
+                    <field name="role_ids" widget="many2many_tags" string="Vị trí"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Employee Action -->
+        <record id="action_employee" model="ir.actions.act_window">
+            <field name="name">Nhân Viên</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ql_nhanvien.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

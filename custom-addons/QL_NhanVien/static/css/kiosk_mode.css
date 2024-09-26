@@ -1,0 +1,38 @@
+/*
+.kiosk-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #625aac;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.kiosk-header h1 {
+    margin: 20px 0;
+}
+
+.kiosk-button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #44c767;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.kiosk-button:hover {
+    background-color: #5cbf2a;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+*/
