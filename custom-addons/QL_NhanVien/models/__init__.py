@@ -5,5 +5,4 @@ from . import role
 from . import employee_role
 from . import attendance
 from . import contract
-from . import company_info
-#from . import res_partner
+from . import company

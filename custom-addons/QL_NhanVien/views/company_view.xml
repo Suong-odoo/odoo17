@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="name">company.form</field>
+        <field name="model">ql_nhanvien.company</field>
+        <field name="arch" type="xml">
+            <form string="Thông tin Công ty">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Tên Công ty"/>
+                            <field name="address" string="Địa chỉ"/>
+                            <field name="phone" string="Số điện thoại"/>
+                            <field name="mobile" string="Số di động"/>
+                            <field name="email" string="Email"/>
+                            <field name="website" string="Website"/>
+                            <field name="tax_id" string="Mã số thuế"/>
+                            <field name="tags" string="Tags"/>
+                        </group>
+                        <group>
+                            <field name="logo" widget="image" string="Logo Công ty"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_company_tree" model="ir.ui.view">
+        <field name="name">company.tree</field>
+        <field name="model">ql_nhanvien.company</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách Công ty">
+                <field name="name" string="Tên Công ty"/>
+                <field name="phone" string="Số điện thoại"/>
+                <field name="email" string="Email"/>
+                <field name="website" string="Website"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action to open Company Info -->
+    <record id="action_company_info" model="ir.actions.act_window">
+        <field name="name">Thông tin Công ty</field>
+        <field name="res_model">ql_nhanvien.company</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

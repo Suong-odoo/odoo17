@@ -16,8 +16,10 @@
 
                 <!-- Lặp qua danh sách nhân viên -->
                 <t t-foreach="docs" t-as="employee">
-                    <!-- logo công ty-->
-                                       <!-- Tên Nhân Viên -->
+                   <!-- Ảnh nhân viên -->
+                    <div style="margin-top: 10px;">
+                        <img t-att-src="image_data_uri(ql_nhanvien.company.logo)" style="max-height: 85pt; max-width: 90%; border-radius: 8px;" alt="Employee Image"/>
+                    </div>
                     <h1 style="font-size: 20px; margin-bottom: 10px;">
                         <t t-esc="employee.name"/>
                     </h1>

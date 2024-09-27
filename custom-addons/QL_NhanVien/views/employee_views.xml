@@ -49,11 +49,12 @@
                         <notebook>
                             <!-- Tab Thông tin Công việc -->
                           <page string="Thông tin Công việc">
-                        <group>
-
-                            <field name="work_location" widget="selection" string='Địa điểm làm việc'/>
-                            <field name="work_schedule" widget="selection" string="Lịch làm việc"/>
+                       <group>
+                           <field name="company_id" string="Công ty"/>
+                           <field name="work_location" string='Địa điểm làm việc'/>
+                           <field name="work_schedule" string="Lịch làm việc"/>
                         </group>
+
                     </page>
 
 

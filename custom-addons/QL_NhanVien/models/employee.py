@@ -31,7 +31,7 @@ class Employee(models.Model):
 
     # Thông tin công ty
 
-    #work_address_id = fields.Many2one('company', string='Công ty', required=True, ondelete='cascade')
+    company_id = fields.Many2one('ql_nhanvien.company', string='Công ty', required=True)
     work_location = fields.Selection([
         ('office', 'Tại văn phòng'),
         ('home', 'Tại nhà'),

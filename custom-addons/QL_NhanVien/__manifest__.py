@@ -36,7 +36,7 @@
         'views/employee_role_views.xml',
         'views/menu_view.xml',
         'views/attendance_views.xml',
-
+        'views/company_view.xml',
         #'data/demo_data.xml',
 
     ],
