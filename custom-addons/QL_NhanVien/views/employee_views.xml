@@ -122,11 +122,11 @@
             <field name="model">ql_nhanvien.employee</field>
             <field name="arch" type="xml">
                 <tree string="Danh Sách Nhân Viên">
-                    <field name="image" string="Ảnh đại diện" widget="image" options='{"size": [40, 30]}'/>
-                    <field name="name" string="Họ và Tên"/>
-                    <field name="work_email" string="Email công việc"/>
-                    <field name="work_mobile" string="Số di động công việc"/>
-                    <field name="role_ids" widget="many2many_tags" string="Vị trí"/>
+                    <field name="image" string="Ảnh đại diện" widget="image" options='{"size": [40, 30]}' optional="show"/>
+                    <field name="name" string="Họ và Tên"  optional="show"/>
+                    <field name="work_email" string="Email công việc"  optional="show"/>
+                    <field name="work_mobile" string="Số di động công việc"  optional="show"/>
+                    <field name="role_ids" widget="many2many_tags" string="Vị trí"  optional="show"/>
                 </tree>
             </field>
         </record>

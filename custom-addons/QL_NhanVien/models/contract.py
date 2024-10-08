@@ -25,7 +25,7 @@ class Contracts(models.Model):
     ], string='Trạng thái', default='draft')
 
     # Các trường bổ sung nếu cần
-    position = fields.Char(string='Vị trí công việc')
+    position_name = fields.Many2one('ql_nhanvien.role', string='Vị trí công việc')
     department_id = fields.Many2one('ql_nhanvien.department', string='Phòng ban')
     notes = fields.Text(string='Ghi chú')
 

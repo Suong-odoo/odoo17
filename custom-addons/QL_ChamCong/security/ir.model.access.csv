@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ql_nhanvien_attendance,access.ql_nhanvien.attendance,model_ql_nhanvien_attendance,,1,1,1,1

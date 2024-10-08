@@ -1,2 +1,3 @@
-from.import attendance
-from.import contract
+from . import attendance
+from . import attendance_kiosk
+

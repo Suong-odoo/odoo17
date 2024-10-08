@@ -33,7 +33,7 @@
             <field name="model">ql_nhanvien.role</field>
             <field name="arch" type="xml">
                 <tree string="Danh Sách Vị trí công việc">
-                    <field name="name" string="Tên Vị trí"/>
+                    <field name="name" string="Tên Vị trí" class ="text-center"/>
                     <field name="description" string="Mô Tả Vị trí công vệc"/>
                 </tree>
             </field>

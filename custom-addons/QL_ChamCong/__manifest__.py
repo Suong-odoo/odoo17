@@ -1,35 +1,42 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Quản lý chấm công",
-    'summary': """Mô-đun quản lý thông tin nhân viên công ty phần mềm SoftPoint""",
+    'name': "Quản lý Chấm Công",
+    'summary': """Mô-đun quản lý chấm công cho nhân viên công ty phần mềm SoftPoint""",
     'description': """
-        Mô-đun quản lý thông tin nhân viên
+        Mô-đun Quản lý Chấm Công
 
-        Mô-đun này cung cấp các tính năng để quản lý thông tin nhân viên trong công ty, bao gồm:
+        Mô-đun này cung cấp các tính năng để quản lý chấm công của nhân viên trong công ty, bao gồm:
 
-        - Quản lý thông tin cơ bản nhân viên như họ tên, ngày sinh, địa chỉ, số điện thoại, email, ...
-        - Quản lý thông tin nghề nghiệp như vị trí công việc, phòngcông ban, ngày vào làm, lương, ...
-        - Quản lý thông tin hợp đồng lao động, bảo hiểm, phúc lợi của nhân viên.
-        - Quản lý ngày nghỉ phép, nghỉ lễ, nghỉ ốm của nhân viên.
-        - Quản lý đánh giá hiệu suất làm việc và kỷ luật của nhân viên.
-        - Báo cáo và thống kê về lực lượng lao động của công ty.
+        - Ghi nhận thời gian check-in và check-out của nhân viên
+        - Tính toán tự động số giờ làm việc dựa trên thời gian check-in và check-out
+        - Theo dõi đi muộn, về sớm và làm thêm giờ
+        - Tích hợp với module Quản lý Nhân viên để liên kết thông tin chấm công với hồ sơ nhân viên
+        - Tạo báo cáo chấm công theo ngày, tuần, tháng
+        - Hỗ trợ xuất dữ liệu chấm công để tính lương
+        - Giao diện thân thiện cho nhân viên tự chấm công
+        - Tích hợp với các thiết bị chấm công (tùy chọn)
 
-        Mô-đun này giúp công ty có một hệ thống quản lý nhân sự hiệu quả, đảm bảo các quy trình và chính sách liên quan đến nhân sự được tuân thủ đầy đủ.
+        Mô-đun này giúp công ty quản lý thời gian làm việc của nhân viên một cách hiệu quả, 
+        đảm bảo tính chính xác trong việc tính toán giờ làm và hỗ trợ cho quá trình tính lương.
         """,
     'author': "Group Sương and Ngân",
-    'category': 'Uncategorized',
+    'category': 'Human Resources',
     'version': '0.1',
     'depends': [
+        'QL_NhanVien',
         'base',
-        'product',
-        'website',
-    ],
-    'data': [
-        'views/attendance_views.xml',
-        'views/contract_views.xml',
+        'web',
 
     ],
-     'qweb': ['static/src/js/xml/qr_scanner.xml'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menu.xml',
+        'views/attendance_view.xml',
+        'views/attendance_kiosk_view.xml',
+    ],
+     'assets': {
+
+    },
     'installable': True,
     'application': True,
     'auto_install': False,

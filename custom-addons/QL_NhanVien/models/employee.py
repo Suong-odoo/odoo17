@@ -129,42 +129,8 @@ class Employee(models.Model):
                 raise ValidationError("Số điện thoại phải có đúng 10 chữ số.")
 
     # Hàm xử lý chấm công
-    attendance_ids = fields.One2many('ql_nhanvien.attendance', 'employee_id', string='Chấm công')
-
-    def action_check_in(self):
-        check_in_time = fields.Datetime.now()
-        attendance = self.env['ql_nhanvien.attendance'].create({
-            'employee_id': self.id,
-            'check_in': check_in_time,
-        })
-        return {
-            'effect': {
-                'fadeout': 'slow',
-                'message': 'Bạn đã chấm công thành công.',
-                'type': 'rainbow_man',
-            }
-        }
-
-    def action_check_out(self):
-        attendance = self.env['ql_nhanvien.attendance'].search([('employee_id', '=', self.id)], order='check_in desc', limit=1)
-        if attendance and not attendance.check_out:
-            check_out_time = fields.Datetime.now()
-            attendance.write({'check_out': check_out_time})
-            return {
-                'effect': {
-                    'fadeout': 'slow',
-                    'message': f'Bạn đã chấm công ra lúc {check_out_time.strftime("%H:%M:%S")}',
-                    'type': 'rainbow_man',
-                }
-            }
-        else:
-            return {
-                'warning': {
-                    'title': "Không tìm thấy bản ghi chấm công",
-                    'message': "Bạn phải chấm công vào trước khi chấm công ra."
-                }
-            }
-
+    attendance_ids = fields.One2many('ql_nhanvien.attendance', 'employee_id', string='Danh sách chấm công')
+    standard_hours = fields.Float(string='Số giờ làm việc tiêu chuẩn', default=8.0)
     # Phương thức tạo nhân viên
     def action_create_employee(self):
         for record in self:

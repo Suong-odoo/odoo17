@@ -33,11 +33,10 @@
         'report/employee_report.xml',
         'views/department_views.xml',
         'views/role_views.xml',
-        'views/employee_role_views.xml',
         'views/menu_view.xml',
-        'views/attendance_views.xml',
+        #'views/attendance_views.xml',
         'views/company_view.xml',
-        #'data/demo_data.xml',
+        'data/demo_data.xml',
 
     ],
      'qweb': ['static/src/js/xml/qr_scanner.xml'],

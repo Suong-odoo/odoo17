@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!-- Menu gốc: Quản lý Chấm công -->
+        <menuitem id="menu_attendance_root" name="Quản lý Chấm công" sequence="10"/>
+
+        <!-- Menu con: Danh sách chấm công -->
+        <menuitem id="menu_attendance" name="Danh sách chấm công" action="action_attendance_record"
+                  parent="menu_attendance_root" sequence="1"/>
+
+
+    </data>
+</odoo>

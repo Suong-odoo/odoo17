@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <!-- Form view hiển thị chi tiết chấm công với ảnh nhân viên -->
+        <record id="view_attendance_record_form" model="ir.ui.view">
+            <field name="name">ql_nhanvien.attendance.form</field>
+            <field name="model">ql_nhanvien.attendance</field>
+            <field name="arch" type="xml">
+                <form string="Chi tiết chấm công">
+                    <sheet>
+                        <div class="oe_title" style="display: flex; align-items: center;">
+                            <field name="image" widget="image" class="oe_avatar" options='{"size": [50, 50]}' style="margin-right: 10px;"/>
+                            <h1 style="margin: 0;">
+                                <field name="employee_id" placeholder="Họ Và Tên"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="check_in" string="Giờ vào"/>
+                                <field name="check_out" string="Giờ ra"/>
+                            </group>
+                            <group>
+                                <field name="hours_worked" string="Số giờ làm việc" widget="float_time"/>
+                                <field name="extra_hours" string="Giờ làm thêm" widget="float_time"/>
+                            </group>
+                        </group>
+
+                        <!-- Đặt phần notebook bên dưới thông tin chấm công -->
+                        <notebook>
+                            <page string="Thông tin bổ sung">
+                                <group>
+                                    <field name="check_in_mode" string="Chế độ chấm công"/>
+                                    <field name="use_camera" string="Sử dụng camera"/>
+
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view hiển thị danh sách chấm công -->
+        <record id="view_attendance_record_tree" model="ir.ui.view">
+            <field name="name">ql_nhanvien.attendance.tree</field>
+            <field name="model">ql_nhanvien.attendance</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách chấm công">
+                    <field name="image" widget="image" options='{"size": [40, 40]}' optional="show"/>
+                    <field name="employee_id"/>
+                    <field name="check_in" string="Giờ vào" optional="show"/>
+                    <field name="check_out" string="Giờ ra" optional="show"/>
+                    <field name="hours_worked" string="Số giờ làm việc" optional="show"/>
+                    <field name="extra_hours" string="Giờ làm thêm" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action để hiển thị view -->
+        <record id="action_attendance_record" model="ir.actions.act_window">
+            <field name="name">Chấm công nhân viên</field>
+            <field name="res_model">ql_nhanvien.attendance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    </data>
+</odoo>

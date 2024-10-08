@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <!-- Định nghĩa Action cho Kiosk Mode -->
+        <record id="action_attendance_kiosk_mode" model="ir.actions.client">
+            <field name="name">Chế độ Ki-ốt</field>
+            <field name="tag">ql_nhanvien_attendance_kiosk_mode</field>
+            <field name="target">fullscreen</field>
+        </record>
+
+        <menuitem id="menu_attendance_kiosk_mode" name="Chế độ Ki-ốt" parent="menu_attendance_root"
+                  action="action_attendance_kiosk_mode" sequence="2"/>
+    </data>
+</odoo>

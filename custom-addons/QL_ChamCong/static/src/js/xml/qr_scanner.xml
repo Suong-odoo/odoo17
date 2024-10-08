@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="QRScannerTemplate">
+        <div class="qr-scanner">
+
+            <canvas class="qr-canvas" style="display: none;"></canvas>
+            <button class="btn btn-primary start-scan">Start Scanning</button>
+        </div>
+    </t>
+</templates>
